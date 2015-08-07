@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+
+    <form action="/articles/create" method='post'>
+      <fieldset>
+      <legend>Noticias:</legend>
+      Titulo:<br>
+      <input type="text" name="title" value="titulo">
+      <br>
+      Subtitulo:<br>
+      <input type="text" name="subtitle" value="subtitulo">
+      <br>
+      Contenido:<br>
+      <input type="text" name="content" value="Contenido">
+      <br><br>
+      <input type="submit" value="Publicar">
+      </fieldset>
+    </form>
+
+   <ul>
+        <% for(var i=0; i<articles.length; i++) { %>
+            <li>
+                <a href='/articles/<%= articles[i].id %>'><%= articles[i].title %></a>
+                <a href='/articles/<%= articles[i].id%>/destroy'>(Borrar)</a><br>
+            </li>
+        <% } %>
+    </ul>
+
+
+  </body>
+</html>
